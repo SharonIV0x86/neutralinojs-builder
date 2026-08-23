@@ -56,7 +56,7 @@ function prepareAppBundle(config, stagingPath) {
         iconFileName = path.basename(config.assets.icon);
         fs.copyFileSync(config.assets.icon, path.join(resourcesPath, iconFileName));
     }
-
+    const minVersion = "10.13.0";
     // Generate Info.plist
     const plistContent = `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -72,6 +72,8 @@ function prepareAppBundle(config, stagingPath) {
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
     <string>${metadata.version || "1.0.0"}</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>${minVersion}</string>
     ${iconFileName ? `<key>CFBundleIconFile</key>\n    <string>${iconFileName}</string>` : ""}
 </dict>
 </plist>`;

@@ -22,7 +22,7 @@ const targets = {
     dmg: {
         targetPlatform: "mac",
         requiredTools: ["hdiutil"],
-        supportedHosts: ["mac"],
+        supportedHosts: ["mac", "darwin"],
         supportedArchitectures: ["x64", "arm64", "universal"]
     }
 };
