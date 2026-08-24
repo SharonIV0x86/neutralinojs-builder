@@ -47,6 +47,7 @@ function prepareAppBundle(config, stagingPath) {
     // Copy Neutralino resources bundle if present in staging
     const stagingResources = path.join(stagingPath, "resources.neu");
     if (fs.existsSync(stagingResources)) {
+        fs.copyFileSync(stagingResources, path.join(macOsPath, "resources.neu"));
         fs.copyFileSync(stagingResources, path.join(resourcesPath, "resources.neu"));
     }
 
